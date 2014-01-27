@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:zcml="http://namespaces.zope.org/zcml">
+        <configure zcml:condition="installed Products.Zuul">
+
+            <include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+
+
+            <!-- ZenPack Info -->
+
+            <browser:directRouter
+                name="Synology_router"
+                for="*"
+                class="ZenPacks.community.Synology.routers.SynologyRouter"
+                namespace="Zenoss.remote"
+                permission="zenoss.View"
+            />
+    
+            <adapter
+                name="SynologyAdapter"
+                provides="ZenPacks.community.Synology.interfaces.ISynologyFacade"
+                for="*"
+                factory="ZenPacks.community.Synology.facades.SynologyFacade"
+            />
+                
+            <browser:resourceDirectory
+                    name="Synology"
+                    directory="resources"
+            />
+
+            <!-- Component Info -->
+            <adapter factory="ZenPacks.community.Synology.info.SynologySystemInfo"
+                for="ZenPacks.community.Synology.SynologySystem.SynologySystem"
+                provides="ZenPacks.community.Synology.interfaces.ISynologySystemInfo"
+            />
+    
+            <browser:viewlet
+                name="js-SynologySystem"
+                paths="/++resource++Synology/synologysystem.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.SynologySystemgetEventClassesVocabulary"
+                name="SynologySystemgetEventClasses"
+            />
+
+            <!-- Component Info -->
+            <adapter factory="ZenPacks.community.Synology.info.SynologyHardDiskInfo"
+                for="ZenPacks.community.Synology.SynologyHardDisk.SynologyHardDisk"
+                provides="ZenPacks.community.Synology.interfaces.ISynologyHardDiskInfo"
+            />
+    
+            <browser:viewlet
+                name="js-SynologyHardDisk"
+                paths="/++resource++Synology/synologyharddisk.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.SynologyHardDiskgetEventClassesVocabulary"
+                name="SynologyHardDiskgetEventClasses"
+            />
+
+            <!-- Component Info -->
+            <adapter factory="ZenPacks.community.Synology.info.SynologyLogicalDiskInfo"
+                for="ZenPacks.community.Synology.SynologyLogicalDisk.SynologyLogicalDisk"
+                provides="ZenPacks.community.Synology.interfaces.ISynologyLogicalDiskInfo"
+            />
+    
+            <browser:viewlet
+                name="js-SynologyLogicalDisk"
+                paths="/++resource++Synology/synologylogicaldisk.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.SynologyLogicalDiskgetEventClassesVocabulary"
+                name="SynologyLogicalDiskgetEventClasses"
+            />
+
+        </configure>
+    </configure>
+
