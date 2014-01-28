@@ -3,7 +3,7 @@
 <!-- ('', 'zport', 'dmd', 'Devices', 'Server', 'Synology') -->
 <object id='/zport/dmd/Devices/Server/Synology' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
 <property visible="True" type="lines" id="zCollectorPlugins" >
-['community.snmp.SynologyDeviceMap', 'community.snmp.SynologyHardDiskMap', 'community.snmp.SynologyLogicalDiskMap']
+['zenoss.snmp.DeviceMap', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.IpServiceMap', 'zenoss.snmp.HRFileSystemMap', 'zenoss.snmp.HRSWRunMap', 'zenoss.snmp.CpuMap', 'community.snmp.SynologyDeviceMap', 'community.snmp.SynologySystemMap', 'community.snmp.SynologyHardDiskMap', 'community.snmp.SynologyLogicalDiskMap']
 </property>
 <tomanycont id='rrdTemplates'>
 <object id='SynologyHardDisk' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
