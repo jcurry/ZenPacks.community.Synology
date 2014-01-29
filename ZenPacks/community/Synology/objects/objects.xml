@@ -131,7 +131,7 @@ True
 0
 </property>
 </object>
-<object id='Disk Status Change' module='Products.ZenModel.ValueChangeThreshold' class='ValueChangeThreshold'>
+<object id='Disk Status Change' module='Products.ZenModel.MinMaxThreshold' class='MinMaxThreshold'>
 <property type="string" id="eventClass" mode="w" >
 /Status/HardDisk
 </property>
@@ -143,6 +143,12 @@ True
 </property>
 <property label="Enabled" type="boolean" id="enabled" mode="w" >
 True
+</property>
+<property type="string" id="maxval" mode="w" >
+1
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
 </property>
 </object>
 </tomanycont>
@@ -184,20 +190,9 @@ Disk Damaged gt 3
 ${graphPoint/id}
 </property>
 </object>
-<object id='Staus Disk Change' module='Products.ZenModel.ThresholdGraphPoint' class='ThresholdGraphPoint'>
-<property type="long" id="sequence" mode="w" >
-1
-</property>
-<property type="string" id="threshId" mode="w" >
-Staus Disk Change
-</property>
-<property type="string" id="legend" mode="w" >
-${graphPoint/id}
-</property>
-</object>
 <object id='diskStatus' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
 <property type="long" id="sequence" mode="w" >
-2
+1
 </property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
@@ -365,9 +360,9 @@ True
 0
 </property>
 </object>
-<object id='RAID Status Change' module='Products.ZenModel.ValueChangeThreshold' class='ValueChangeThreshold'>
+<object id='RAID Status Change' module='Products.ZenModel.MinMaxThreshold' class='MinMaxThreshold'>
 <property type="string" id="eventClass" mode="w" >
-/Status/HardDisk
+/Status/RAID
 </property>
 <property type="int" id="severity" mode="w" >
 3
@@ -377,6 +372,12 @@ True
 </property>
 <property label="Enabled" type="boolean" id="enabled" mode="w" >
 True
+</property>
+<property type="string" id="maxval" mode="w" >
+1
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
 </property>
 </object>
 </tomanycont>
@@ -418,20 +419,9 @@ RAID Failed gt 10
 ${graphPoint/id}
 </property>
 </object>
-<object id='RAID Status Change' module='Products.ZenModel.ThresholdGraphPoint' class='ThresholdGraphPoint'>
-<property type="long" id="sequence" mode="w" >
-1
-</property>
-<property type="string" id="threshId" mode="w" >
-RAID Status Change
-</property>
-<property type="string" id="legend" mode="w" >
-${graphPoint/id}
-</property>
-</object>
 <object id='raidStatus' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
 <property type="long" id="sequence" mode="w" >
-2
+1
 </property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
