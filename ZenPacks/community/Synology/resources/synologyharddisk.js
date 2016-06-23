@@ -9,7 +9,11 @@
             return ob;
         }
     }
-
+    
+    function pass_link(ob){ 
+        return ob; 
+    }
+    
     ZC.SynologyHardDiskPanel = Ext.extend(ZC.ComponentGridPanel, {
         constructor: function(config) {
             config = Ext.applyIf(config||{}, {
@@ -71,30 +75,34 @@
                         "dataIndex": "name"
                     }, 
                     {
-                        "header": "Disk Status", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Disk Status", 
+                        "renderer": "pass_link", 
                         "id": "getDiskStatus", 
                         "dataIndex": "getDiskStatus"
                     }, 
                     {
-                        "header": "Temperature", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Temperature", 
+                        "renderer": "pass_link", 
                         "id": "getDiskTemperature", 
                         "dataIndex": "getDiskTemperature"
                     }, 
                     {
-                        "header": "Manufacturer", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Manufacturer", 
+                        "renderer": "pass_link", 
                         "id": "manufacturer", 
                         "dataIndex": "manufacturer"
                     }, 
                     {
-                        "header": "Model", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Model", 
+                        "renderer": "pass_link", 
                         "id": "model", 
                         "dataIndex": "model"
                     }, 

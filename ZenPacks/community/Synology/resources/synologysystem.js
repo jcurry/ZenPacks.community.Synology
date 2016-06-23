@@ -9,7 +9,11 @@
             return ob;
         }
     }
-
+    
+    function pass_link(ob){ 
+        return ob; 
+    }
+    
     ZC.SynologySystemPanel = Ext.extend(ZC.ComponentGridPanel, {
         constructor: function(config) {
             config = Ext.applyIf(config||{}, {
@@ -77,44 +81,50 @@
                         "dataIndex": "name"
                     }, 
                     {
-                        "header": "CPU Fan Status", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "CPU Fan Status", 
+                        "renderer": "pass_link", 
                         "id": "getCpuFanStatus", 
                         "dataIndex": "getCpuFanStatus"
                     }, 
                     {
-                        "header": "Power Status", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Power Status", 
+                        "renderer": "pass_link", 
                         "id": "getPowerStatus", 
                         "dataIndex": "getPowerStatus"
                     }, 
                     {
-                        "header": "System Fan Status", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "System Fan Status", 
+                        "renderer": "pass_link", 
                         "id": "getSystemFanStatus", 
                         "dataIndex": "getSystemFanStatus"
                     }, 
                     {
-                        "header": "System Status", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "System Status", 
+                        "renderer": "pass_link", 
                         "id": "getSystemStatus", 
                         "dataIndex": "getSystemStatus"
                     }, 
                     {
-                        "header": "Temperature", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Temperature", 
+                        "renderer": "pass_link", 
                         "id": "getSystemTemperature", 
                         "dataIndex": "getSystemTemperature"
                     }, 
                     {
-                        "header": "Upgrade", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "Upgrade", 
+                        "renderer": "pass_link", 
                         "id": "upgradeAvailable", 
                         "dataIndex": "upgradeAvailable"
                     }, 

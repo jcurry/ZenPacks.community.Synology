@@ -9,7 +9,11 @@
             return ob;
         }
     }
-
+    
+    function pass_link(ob){ 
+        return ob; 
+    }
+    
     ZC.SynologyLogicalDiskPanel = Ext.extend(ZC.ComponentGridPanel, {
         constructor: function(config) {
             config = Ext.applyIf(config||{}, {
@@ -62,9 +66,10 @@
                         "dataIndex": "name"
                     }, 
                     {
-                        "header": "RAID Status", 
-                        "width": 120, 
                         "sortable": "true", 
+                        "width": 120, 
+                        "header": "RAID Status", 
+                        "renderer": "pass_link", 
                         "id": "getRaidStatus", 
                         "dataIndex": "getRaidStatus"
                     }, 
